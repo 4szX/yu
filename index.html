@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Animation with Effects</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+    }
+    .text-container {
+      font-size: 48px;
+      font-weight: bold;
+      color: rgb(236, 234, 234);
+      text-transform: uppercase;
+      animation: bounce 2s ease infinite, shadow-move 1s ease infinite alternate;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+    @keyframes shadow-move {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(158, 37, 37, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgb(99, 95, 95);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text-container">Welcome</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const textContainer = document.querySelector(".text-container");
+      const originalText = textContainer.textContent;
+      const newText = "Create by yu#4321";
+
+      textContainer.addEventListener("mouseover", function() {
+        textContainer.textContent = newText;
+      });
+
+      textContainer.addEventListener("mouseout", function() {
+        textContainer.textContent = originalText;
+      });
+    });
+  </script>
+</body>
+</html>
